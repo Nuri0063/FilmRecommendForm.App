@@ -46,6 +46,37 @@
           }
         }
       },
+      "EntityFrameworkCore.Jet/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "EntityFrameworkCore.Jet.Data": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "[8.0.6, 8.0.999]",
+          "Microsoft.EntityFrameworkCore.Relational": "[8.0.6, 8.0.999]"
+        },
+        "compile": {
+          "lib/net8.0/EntityFrameworkCore.Jet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/EntityFrameworkCore.Jet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EntityFrameworkCore.Jet.Data/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/EntityFrameworkCore.Jet.Data.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/EntityFrameworkCore.Jet.Data.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1539,6 +1570,32 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "EntityFrameworkCore.Jet/8.0.0": {
+      "sha512": "cwlrTIzEMwyx+fEyvHlbuX6xvxUF94z7ig3/+kEW4XeCDu+Nqqp41lAyTbDj/I9toFtVLUZVMVKHMiPRl43xMQ==",
+      "type": "package",
+      "path": "entityframeworkcore.jet/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "entityframeworkcore.jet.8.0.0.nupkg.sha512",
+        "entityframeworkcore.jet.nuspec",
+        "lib/net8.0/EntityFrameworkCore.Jet.dll",
+        "lib/net8.0/EntityFrameworkCore.Jet.xml"
+      ]
+    },
+    "EntityFrameworkCore.Jet.Data/8.0.0": {
+      "sha512": "IFlCqeXdWLz+hj87LOt607fz035uBUp6Oz+oMlGlO8LuEay2CXR2nEvnYfDRWQMGisYtG0IlGYc5p6DTGRBHKA==",
+      "type": "package",
+      "path": "entityframeworkcore.jet.data/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "entityframeworkcore.jet.data.8.0.0.nupkg.sha512",
+        "entityframeworkcore.jet.data.nuspec",
+        "lib/net8.0/EntityFrameworkCore.Jet.Data.dll",
+        "lib/net8.0/EntityFrameworkCore.Jet.Data.xml"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -4034,6 +4091,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "EntityFrameworkCore.Jet >= 8.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10"
     ]
@@ -4083,6 +4141,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "EntityFrameworkCore.Jet": {
+            "target": "Package",
+            "version": "[8.0.0, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[8.0.10, )"
