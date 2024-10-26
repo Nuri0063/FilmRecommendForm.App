@@ -16,9 +16,19 @@ namespace FilmRecommendForm.App
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
 
-            FilmMoodDBContext context = new FilmMoodDBContext();
-            DataOperations dataOperations = new DataOperations();
-            dataOperations.AddMoviesToDatabase();
+            //DataOperations dataOperations = new DataOperations();
+            //dataOperations.AddMoviesToDatabase();
+
+           // FilmMoodDBContext context = new FilmMoodDBContext();
+           //var a= context.MovieCategories.Find(10);
+           // a.CategoryName = "Politik";
+           // context.SaveChanges();
+            
+
+           
+
+            
+
         }
     }
 }

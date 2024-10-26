@@ -1618,7 +1618,7 @@
             // Politik kategorisi altındaki alt başlıkları ve o alt başlıklara ait filmleri ekleme
             MovieCategory movieCategoryPolitik = new()
             {
-                CategoryName = "Fantastik",
+                CategoryName = "Politik",
                 SubCategories = new List<MovieSubCategory>()
             {
 
@@ -2568,6 +2568,19 @@
 
 
             context.MovieCategories.Add(movieCategoryAksiyon); // Film kategorisini ekle
+            context.MovieCategories.Add(movieCategoryBelgesel);
+            context.MovieCategories.Add(movieCategoryBilimkurgu);
+            context.MovieCategories.Add(movieCategoryDram);
+            context.MovieCategories.Add(movieCategoryGerilim);
+            context.MovieCategories.Add(movieCategoryKomedi);
+            context.MovieCategories.Add(movieCategoryKorku);
+            context.MovieCategories.Add(movieCategoryFantastik);
+            context.MovieCategories.Add(movieCategoryPolitik);
+            context.MovieCategories.Add(movieCategoryRomantik);
+            context.MovieCategories.Add(movieCategoryMacera);
+            context.MovieCategories.Add(movieCategorySavaş);
+            context.MovieCategories.Add(movieCategorySpor);
+            context.MovieCategories.Add(movieCategorySuç);
             context.SaveChanges(); // Değişiklikleri kaydet
 
 
