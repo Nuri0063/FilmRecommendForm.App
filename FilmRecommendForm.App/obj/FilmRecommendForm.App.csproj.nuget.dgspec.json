@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "HIC.System.Windows.Forms.DataVisualization": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -73,6 +77,14 @@
             "System.Data.OleDb": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "itext7.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[8.0.5, )"
             }
           },
           "imports": [
@@ -164,6 +176,14 @@
             "System.Data.OleDb": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "itext7.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[8.0.5, )"
             }
           },
           "imports": [
@@ -246,9 +266,21 @@
               "target": "Package",
               "version": "[8.0.10, )"
             },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
             "System.Data.OleDb": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "itext7.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[8.0.5, )"
             }
           },
           "imports": [
@@ -330,6 +362,14 @@
             "System.Data.OleDb": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "itext7.bouncy-castle-adapter": {
+              "target": "Package",
+              "version": "[8.0.5, )"
             }
           },
           "imports": [

@@ -310,7 +310,7 @@
             }
 
 
-            };
+            };  //doğa,gezi ve yarıbelgesel aynı filmler olmuş
 
             // BilimKurgu kategorisi altındaki alt başlıkları ve o alt başlıklara ait filmleri ekleme 
             MovieCategory movieCategoryBilimkurgu = new()

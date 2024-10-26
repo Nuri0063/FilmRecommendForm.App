@@ -9,6 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Security;
+using System;
+using System.IO;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Net.Mail;
+using System.Net;
+
+
 
 namespace FilmRecommendForm.App
 {
@@ -29,8 +44,8 @@ namespace FilmRecommendForm.App
         private void CustomizeComponents() // Bileşenleri özelleştiren metot.
         {
             // Formun arka plan rengini ayarlıyoruz.
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog; // Form kenar stilini ayarlıyoruz.
+            this.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow; // Form kenar stilini ayarlıyoruz.
 
             // Film kategorileri ComboBox'ını özelleştiriyoruz.
             comboBoxMovieCategories.DropDownStyle = ComboBoxStyle.DropDownList; // Sadece liste öğelerinden seçim yapmasını sağlıyoruz.
@@ -53,7 +68,7 @@ namespace FilmRecommendForm.App
             using (var context = new FilmMoodDBContext())
             {
                 var categories = context.MovieCategories.ToList(); // Veritabanından film kategorilerini alıyoruz.
-                
+
                 comboBoxMovieCategories.DataSource = categories; // Kategorileri ComboBox'a veri kaynağı olarak bağlıyoruz.
                 comboBoxMovieCategories.DisplayMember = "CategoryName"; // Görüntülenecek alanı belirliyoruz.
                 comboBoxMovieCategories.ValueMember = "MovieCategoryID"; // Değerini belirliyoruz.
@@ -62,13 +77,7 @@ namespace FilmRecommendForm.App
 
         private void comboBoxMovieCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (comboBoxMovieCategories.SelectedValue != null) // Eğer bir değer seçilmişse
-            //{
-            //    // Seçilen değeri int olarak al
-            //    int selectedCategoryId = (int)comboBoxMovieCategories.SelectedValue;
-            //    LoadSubCategories(selectedCategoryId); // Alt kategorileri yükle
-            //}
-            // Kullanıcı bir kategori seçtiğinde bu metot tetiklenir
+
             if (comboBoxMovieCategories.SelectedItem != null) // Seçili bir öğe var mı kontrol et
             {
                 // Seçilen öğeyi MovieCategory nesnesi olarak al
@@ -81,7 +90,7 @@ namespace FilmRecommendForm.App
                 LoadSubCategories(selectedCategoryId);
             }
         }
-     
+
 
         private void LoadSubCategories(int categoryId) // Alt kategorileri yükleyen metot.
         {
@@ -146,6 +155,84 @@ namespace FilmRecommendForm.App
                     // Film detaylarını bir mesaj kutusunda gösteriyoruz.
                     MessageBox.Show($"Film Adı: {movie.MovieName}\nYönetmen: {movie.Director}\nÇıkış Yılı: {movie.ReleaseYear}\nBaşrol: {movie.LeadingActor}\nIMDB Puanı: {movie.Rating}", "Film Detayları");
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSavePdf_Click(object sender, EventArgs e)
+        {
+            // itex7  ardıdan itex7.bouncy-castle-adapter eklentilerini ekleyerek bu kod yazıldı ve işlem tamammlandı
+            using (var saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // PDF yazıcısını oluştur
+                    using (var writer = new PdfWriter(saveFileDialog.FileName)) // Burada dosya adını geçiriyoruz
+                    using (var pdf = new PdfDocument(writer)) // PdfDocument'ı oluşturuyoruz
+                    {
+                        var document = new Document(pdf);
+                        document.Add(new Paragraph("Film Bilgileri").SetTextAlignment(TextAlignment.CENTER)); // Başlık ekle
+
+                        // DataGridView'deki verileri PDF'ye ekle
+                        foreach (DataGridViewRow row in dataGridViewMovies.Rows)
+                        {
+                            if (row.IsNewRow) continue; // Yeni satırı atla
+                            string movieDetails = $"Film Adı: {row.Cells["MovieName"].Value}, " +
+                                                  $"Yönetmen: {row.Cells["Director"].Value}, " +
+                                                  $"Çıkış Yılı: {row.Cells["ReleaseYear"].Value}, " +
+                                                  $"Başrol: {row.Cells["LeadingActor"].Value}, " +
+                                                  $"IMDB Puanı: {row.Cells["Rating"].Value}";
+                            document.Add(new Paragraph(movieDetails)); // Film detaylarını ekle
+                        }
+
+                        document.Close(); // PDF dökümanını kapat
+                    }
+                }
+            }
+        }
+
+        private void btnChart_Click(object sender, EventArgs e)
+        {
+            var chart = new Chart();
+            chart.ChartAreas.Add(new ChartArea("MainArea"));
+
+            // Örnek veri
+            foreach (DataGridViewRow row in dataGridViewMovies.Rows)
+            {
+                if (row.IsNewRow) continue;
+                string movieName = row.Cells["MovieName"].Value.ToString();
+                double rating = Convert.ToDouble(row.Cells["Rating"].Value);
+                chart.Series.Add(new Series(movieName) { Points = { new DataPoint(1, rating) } });
+            }
+
+            chart.Dock = DockStyle.Fill; // Grafik alanını forma yay
+            var chartForm = new Form { Text = "Film Puanları Grafiği" };
+            chartForm.Controls.Add(chart);
+            chartForm.ShowDialog(); // Grafiği göster
+        }
+
+        private void btn_sendEmail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("nurii6345@gmail.com", "your_password"),  // Gönderen e-posta adresi ve şifresi
+                    EnableSsl = true,
+                };
+
+                smtpClient.Send("your_email@gmail.com", "recipient_email@example.com", "Film Bilgileri", "Ekte film bilgileri bulunmaktadır.");
+                MessageBox.Show("E-posta başarıyla gönderildi!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"E-posta gönderirken hata oluştu: {ex.Message}");
             }
         }
     }
