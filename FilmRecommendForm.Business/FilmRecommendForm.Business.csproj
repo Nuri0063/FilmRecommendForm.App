@@ -14,4 +14,9 @@
     <PackageReference Include="Microsoft.SqlServer.Server" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FilmRecommendForm.Data\FilmRecommendForm.Data.csproj" />
+    <ProjectReference Include="..\FilmRecommendForm.Entities\FilmRecommendForm.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

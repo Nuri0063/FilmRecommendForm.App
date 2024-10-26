@@ -16,4 +16,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FilmRecommendForm.Business\FilmRecommendForm.Business.csproj" />
+    <ProjectReference Include="..\FilmRecommendForm.Data\FilmRecommendForm.Data.csproj" />
+    <ProjectReference Include="..\FilmRecommendForm.Entities\FilmRecommendForm.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1565,6 +1565,48 @@
             "rid": "win"
           }
         }
+      },
+      "FilmRecommendForm.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "FilmRecommendForm.Data": "1.0.0",
+          "FilmRecommendForm.Entities": "1.0.0",
+          "Microsoft.SqlServer.Server": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FilmRecommendForm.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FilmRecommendForm.Business.dll": {}
+        }
+      },
+      "FilmRecommendForm.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "FilmRecommendForm.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10"
+        },
+        "compile": {
+          "bin/placeholder/FilmRecommendForm.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FilmRecommendForm.Data.dll": {}
+        }
+      },
+      "FilmRecommendForm.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10"
+        },
+        "compile": {
+          "bin/placeholder/FilmRecommendForm.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FilmRecommendForm.Entities.dll": {}
+        }
       }
     }
   },
@@ -4163,10 +4205,28 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "FilmRecommendForm.Business/1.0.0": {
+      "type": "project",
+      "path": "../FilmRecommendForm.Business/FilmRecommendForm.Business.csproj",
+      "msbuildProject": "../FilmRecommendForm.Business/FilmRecommendForm.Business.csproj"
+    },
+    "FilmRecommendForm.Data/1.0.0": {
+      "type": "project",
+      "path": "../FilmRecommendForm.Data/FilmRecommendForm.Data.csproj",
+      "msbuildProject": "../FilmRecommendForm.Data/FilmRecommendForm.Data.csproj"
+    },
+    "FilmRecommendForm.Entities/1.0.0": {
+      "type": "project",
+      "path": "../FilmRecommendForm.Entities/FilmRecommendForm.Entities.csproj",
+      "msbuildProject": "../FilmRecommendForm.Entities/FilmRecommendForm.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "FilmRecommendForm.Business >= 1.0.0",
+      "FilmRecommendForm.Data >= 1.0.0",
+      "FilmRecommendForm.Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10"
     ]
@@ -4198,7 +4258,17 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\nurii\\source\\repos\\FilmRecommendForm.App\\FilmRecommendForm.Business\\FilmRecommendForm.Business.csproj": {
+              "projectPath": "C:\\Users\\nurii\\source\\repos\\FilmRecommendForm.App\\FilmRecommendForm.Business\\FilmRecommendForm.Business.csproj"
+            },
+            "C:\\Users\\nurii\\source\\repos\\FilmRecommendForm.App\\FilmRecommendForm.Data\\FilmRecommendForm.Data.csproj": {
+              "projectPath": "C:\\Users\\nurii\\source\\repos\\FilmRecommendForm.App\\FilmRecommendForm.Data\\FilmRecommendForm.Data.csproj"
+            },
+            "C:\\Users\\nurii\\source\\repos\\FilmRecommendForm.App\\FilmRecommendForm.Entities\\FilmRecommendForm.Entities.csproj": {
+              "projectPath": "C:\\Users\\nurii\\source\\repos\\FilmRecommendForm.App\\FilmRecommendForm.Entities\\FilmRecommendForm.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
