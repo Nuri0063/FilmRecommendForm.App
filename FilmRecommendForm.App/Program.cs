@@ -1,3 +1,6 @@
+using FilmRecommend.Business;
+using FilmRecommend.Data;
+
 namespace FilmRecommendForm.App
 {
     internal static class Program
@@ -12,6 +15,10 @@ namespace FilmRecommendForm.App
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+
+            FilmMoodDBContext context = new FilmMoodDBContext();
+            DataOperations dataOperations = new DataOperations();
+            dataOperations.AddMoviesToDatabase();
         }
     }
 }

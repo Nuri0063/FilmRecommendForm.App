@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Reflection.Emit;
 using Microsoft.EntityFrameworkCore;
+using EntityFrameworkCore.Jet;
 using FilmRecommend.Entities;
 using FilmRecommend.Data;
+using System.Data.OleDb;
 
 
 //FilmMoodDBContext context = new();
@@ -22,9 +24,10 @@ namespace FilmRecommend.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            //optionsBuilder.UseSqlServer("Server=DESKTOP-BUSD2NI\\SQLEXPRESS01;Database=FilmOneriDB;Integrated Security=True;TrustServerCertificate=True;");
-            // optionsBuilder.UseSqlServer("Server=DESKTOP-CRN4JL7;Database=FilmRecommendDB;Trusted_Connection=True;TrustServerCertificate=True");
-            optionsBuilder.UseSqlServer("Server=localhost;Database=FilmRecommendDB;Trusted_Connection=True;TrustServerCertificate=True;");
+           
+            //optionsBuilder.UseSqlServer("Server=localhost;Database=FilmRecommendDB;Trusted_Connection=True;TrustServerCertificate=True;"); SQL BAĞLANTISI
+            optionsBuilder.UseJet(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\nurii\OneDrive\Belgeler\Database1.accdb;"); //ACCESS BAĞLANTISI
+            //access ile bağlantı da access de veritabanı oluşturup sonu .accdb bağlantılı yolu optionsBuilder.UseJet e yazıyoruz
         }
 
         //Fluent API ayarlarımızı gerçekleştirdik
