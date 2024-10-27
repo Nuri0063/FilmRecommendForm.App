@@ -78,7 +78,6 @@ namespace FilmRecommendForm.App
             }
         }
 
-
         private void LoadSubCategories(int categoryId) // Alt kategorileri yükleyen metot.
         {
             using (var context = new FilmMoodDBContext()) // Veritabanı bağlamını kullanarak açıyoruz.
@@ -181,7 +180,7 @@ namespace FilmRecommendForm.App
                     }
                 }
             }
-        }
+        }  //PDF
 
         private void btnChart_Click(object sender, EventArgs e)
         {
@@ -201,7 +200,7 @@ namespace FilmRecommendForm.App
             var chartForm = new Form { Text = "Film Puanları Grafiği" };
             chartForm.Controls.Add(chart);
             chartForm.ShowDialog(); // Grafiği göster
-        }
+        } //Grafik
 
         private void btn_sendEmail_Click(object sender, EventArgs e)
         {
@@ -250,7 +249,7 @@ namespace FilmRecommendForm.App
             {
                 MessageBox.Show($"Hata oluştu: {ex.Message}");
             }
-        }
+        } //Email
     }
     
 }
