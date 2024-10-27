@@ -38,6 +38,8 @@
             groupBox1 = new GroupBox();
             btnChart = new Button();
             btn_sendEmail = new Button();
+            txtEmail = new TextBox();
+            lblResult = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMovies).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -134,19 +136,38 @@
             // 
             // btn_sendEmail
             // 
-            btn_sendEmail.Location = new Point(628, 72);
+            btn_sendEmail.Location = new Point(613, 59);
             btn_sendEmail.Name = "btn_sendEmail";
-            btn_sendEmail.Size = new Size(94, 29);
+            btn_sendEmail.Size = new Size(152, 54);
             btn_sendEmail.TabIndex = 10;
-            btn_sendEmail.Text = "button1";
+            btn_sendEmail.Text = "Mail Gönder";
             btn_sendEmail.UseVisualStyleBackColor = true;
             btn_sendEmail.Click += btn_sendEmail_Click;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(628, 121);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(125, 27);
+            txtEmail.TabIndex = 11;
+            // 
+            // lblResult
+            // 
+            lblResult.AutoSize = true;
+            lblResult.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblResult.Location = new Point(53, 143);
+            lblResult.Name = "lblResult";
+            lblResult.Size = new Size(43, 17);
+            lblResult.TabIndex = 12;
+            lblResult.Text = "label4";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1289, 642);
+            Controls.Add(lblResult);
+            Controls.Add(txtEmail);
             Controls.Add(btn_sendEmail);
             Controls.Add(btnChart);
             Controls.Add(groupBox1);
@@ -175,5 +196,7 @@
         private GroupBox groupBox1;
         private Button btnChart;
         private Button btn_sendEmail;
+        private TextBox txtEmail;
+        private Label lblResult;
     }
 }

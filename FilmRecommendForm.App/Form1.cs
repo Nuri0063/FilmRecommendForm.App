@@ -218,22 +218,52 @@ namespace FilmRecommendForm.App
 
         private void btn_sendEmail_Click(object sender, EventArgs e)
         {
+
             try
             {
+                var usermail = txtEmail.Text;
+                // DataGridView'dan film bilgilerini toplama
+                StringBuilder filmDetailsBuilder = new StringBuilder();
+                filmDetailsBuilder.AppendLine("Film Bilgileri:\n");
+
+                // DataGridView'daki her satırı dolaşma
+                foreach (DataGridViewRow row in dataGridViewMovies.Rows)
+                {
+                    if (row.Cells["MovieName"].Value != null && row.Cells["Director"].Value != null)
+                    {
+                        // Film bilgilerini al
+                        string filmTitle = row.Cells["MovieName"].Value.ToString();
+                        string filmDirector = row.Cells["Director"].Value.ToString();
+                        int releaseYear = Convert.ToInt32(row.Cells["ReleaseYear"].Value); // Yıl hücresinin ismi "Yıl" olarak varsayılmıştır.
+
+                        // Bilgileri ekle
+                        filmDetailsBuilder.AppendLine($"Film Adı: {filmTitle}");
+                        filmDetailsBuilder.AppendLine($"Yönetmen: {filmDirector}");
+                        filmDetailsBuilder.AppendLine($"Yıl: {releaseYear}");
+                        filmDetailsBuilder.AppendLine(); // Boş bir satır ekle
+                    }
+                }
+
                 var smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
-                    Credentials = new NetworkCredential("nurii6345@gmail.com", "your_password"),  // Gönderen e-posta adresi ve şifresi
+                    Credentials = new NetworkCredential("nurii6345@gmail.com", "vkew qukv lgev dabl"), // Uygulama şifresini buraya ekleyin
                     EnableSsl = true,
                 };
 
-                smtpClient.Send("your_email@gmail.com", "recipient_email@example.com", "Film Bilgileri", "Ekte film bilgileri bulunmaktadır.");
+                // E-posta gönderim işlemi
+                smtpClient.Send("nurii6345@gmail.com", usermail, "Film Bilgileri", filmDetailsBuilder.ToString());
                 MessageBox.Show("E-posta başarıyla gönderildi!");
+            }
+            catch (SmtpException smtpEx)
+            {
+                MessageBox.Show($"SMTP Hatası: {smtpEx.Message}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"E-posta gönderirken hata oluştu: {ex.Message}");
+                MessageBox.Show($"Hata oluştu: {ex.Message}");
             }
         }
     }
+    
 }
