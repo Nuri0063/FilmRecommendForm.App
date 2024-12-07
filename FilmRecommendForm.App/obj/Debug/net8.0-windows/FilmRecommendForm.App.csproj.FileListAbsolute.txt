@@ -170,3 +170,6 @@ C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\bin\Debu
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\bin\Debug\net8.0-windows\itext.bouncy-castle-adapter.dll
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\bin\Debug\net8.0-windows\System.Windows.Forms.DataVisualization.dll
+C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.LoginForm.resources
+C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.MovieListForm.resources
+C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.SelectionForm.resources
