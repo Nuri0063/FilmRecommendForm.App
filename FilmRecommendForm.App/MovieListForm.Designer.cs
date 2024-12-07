@@ -66,6 +66,7 @@
             btnExportPdf.TabIndex = 3;
             btnExportPdf.Text = "PDF";
             btnExportPdf.UseVisualStyleBackColor = true;
+            btnExportPdf.Click += btnExportPdf_Click;
             // 
             // btnSendMail
             // 

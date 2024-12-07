@@ -1,4 +1,8 @@
 ﻿using FilmRecommend.Data;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,6 +102,39 @@ namespace FilmRecommendForm.App
             };
             graphForm.Controls.Add(chart);
             graphForm.Show();
+        }
+
+        private void btnExportPdf_Click(object sender, EventArgs e)
+        {
+            // itex7  ardıdan itex7.bouncy-castle-adapter eklentilerini ekleyerek bu kod yazıldı ve işlem tamammlandı
+            using (var saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // PDF yazıcısını oluştur
+                    using (var writer = new PdfWriter(saveFileDialog.FileName)) // Burada dosya adını geçiriyoruz
+                    using (var pdf = new PdfDocument(writer)) // PdfDocument'ı oluşturuyoruz
+                    {
+                        var document = new Document(pdf);
+                        document.Add(new Paragraph("Film Bilgileri").SetTextAlignment(TextAlignment.CENTER)); // Başlık ekle
+
+                        // DataGridView'deki verileri PDF'ye ekle
+                        foreach (DataGridViewRow row in dgvMovies.Rows)
+                        {
+                            if (row.IsNewRow) continue; // Yeni satırı atla
+                            string movieDetails = $"Film Adı: {row.Cells["MovieName"].Value}, " +
+                                                  $"Yönetmen: {row.Cells["Director"].Value}, " +
+                                                  $"Çıkış Yılı: {row.Cells["ReleaseYear"].Value}, " +
+                                                  $"Başrol: {row.Cells["LeadingActor"].Value}, " +
+                                                  $"IMDB Puanı: {row.Cells["Rating"].Value}";
+                            document.Add(new Paragraph(movieDetails)); // Film detaylarını ekle
+                        }
+
+                        document.Close(); // PDF dökümanını kapat
+                    }
+                }
+            }
         }
     }
 }
