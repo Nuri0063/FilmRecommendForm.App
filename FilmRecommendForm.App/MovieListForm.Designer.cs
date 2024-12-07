@@ -42,11 +42,12 @@
             // 
             dgvMovies.BackgroundColor = Color.Navy;
             dgvMovies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMovies.Location = new Point(1, 0);
+            dgvMovies.Location = new Point(0, -4);
             dgvMovies.Name = "dgvMovies";
             dgvMovies.RowHeadersWidth = 51;
-            dgvMovies.Size = new Size(799, 168);
+            dgvMovies.Size = new Size(800, 152);
             dgvMovies.TabIndex = 0;
+            dgvMovies.MouseDoubleClick += dgvMovies_MouseDoubleClick;
             // 
             // btnShowGraph
             // 
@@ -76,6 +77,7 @@
             btnSendMail.TabIndex = 4;
             btnSendMail.Text = "Mail";
             btnSendMail.UseVisualStyleBackColor = true;
+            btnSendMail.Click += btnSendMail_Click;
             // 
             // txtEmail
             // 

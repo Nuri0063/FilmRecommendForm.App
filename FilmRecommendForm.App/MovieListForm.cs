@@ -9,6 +9,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +24,7 @@ namespace FilmRecommendForm.App
         {
             InitializeComponent();
             LoadMovies(selectedMainCategoryId, selectedSubCategoryId);
+
         }
 
         private void LoadMovies(int categoryId, int subCategoryId)
@@ -36,14 +39,38 @@ namespace FilmRecommendForm.App
                     {
                         m.MovieID,
                         m.MovieName,
+                        m.Rating,
                         m.Director,
                         m.LeadingActor,
-                        m.ReleaseYear,
-                        m.Rating
+                        m.ReleaseYear
+                        
+
                     })
                     .ToList();
 
+                
                 dgvMovies.DataSource = movies; // DataGridView'e bağla
+
+                // MovieID ve Rating kolonlarını gizle
+                dgvMovies.Columns["MovieID"].Visible = false;
+                dgvMovies.Columns["Rating"].Visible = false;
+                dgvMovies.Columns["Director"].Visible = false;
+                dgvMovies.Columns["LeadingActor"].Visible = false;
+                dgvMovies.Columns["ReleaseYear"].Visible = false;
+
+                // MovieName kolonunun başlığını ayarla
+                dgvMovies.Columns["MovieName"].HeaderText = "Film Adı";
+                dgvMovies.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvMovies.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+                dgvMovies.BorderStyle = BorderStyle.None;
+                dgvMovies.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                
+
+
+
+
+
             }
         }
 
@@ -134,6 +161,66 @@ namespace FilmRecommendForm.App
                         document.Close(); // PDF dökümanını kapat
                     }
                 }
+            }
+        }
+
+        private void btnSendMail_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var usermail = txtEmail.Text;
+                // DataGridView'dan film bilgilerini toplama
+                StringBuilder filmDetailsBuilder = new StringBuilder();
+                filmDetailsBuilder.AppendLine("Film Bilgileri:\n");
+
+                // DataGridView'daki her satırı dolaşma
+                foreach (DataGridViewRow row in dgvMovies.Rows)
+                {
+                    if (row.Cells["MovieName"].Value != null && row.Cells["Director"].Value != null)
+                    {
+                        // Film bilgilerini al
+                        string filmTitle = row.Cells["MovieName"].Value.ToString();
+                        string filmDirector = row.Cells["Director"].Value.ToString();
+                        int releaseYear = Convert.ToInt32(row.Cells["ReleaseYear"].Value); // Yıl hücresinin ismi "Yıl" olarak varsayılmıştır.
+
+                        // Bilgileri ekle
+                        filmDetailsBuilder.AppendLine($"Film Adı: {filmTitle}");
+                        filmDetailsBuilder.AppendLine($"Yönetmen: {filmDirector}");
+                        filmDetailsBuilder.AppendLine($"Yıl: {releaseYear}");
+                        filmDetailsBuilder.AppendLine(); // Boş bir satır ekle
+                    }
+                }
+
+                var smtpClient = new SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("nurii6345@gmail.com", "vkew qukv lgev dabl"), // Uygulama şifresini buraya ekleyin
+                    EnableSsl = true,
+                };
+
+                // E-posta gönderim işlemi
+                smtpClient.Send("nurii6345@gmail.com", usermail, "Film Bilgileri", filmDetailsBuilder.ToString());
+                MessageBox.Show("E-posta başarıyla gönderildi!");
+            }
+            catch (SmtpException smtpEx)
+            {
+                MessageBox.Show($"SMTP Hatası: {smtpEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata oluştu: {ex.Message}");
+            }
+        }
+
+        private void dgvMovies_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (dgvMovies.SelectedRows.Count > 0)
+            {
+                int selectedMovieId = (int)dgvMovies.SelectedRows[0].Cells["MovieID"].Value;
+
+                // MovieDetailsForm'u aç ve ID'yi gönder
+                MovieDetailsFormcs detailsForm = new MovieDetailsFormcs (selectedMovieId);
+                detailsForm.ShowDialog();
             }
         }
     }
