@@ -124,7 +124,6 @@ C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\bin\Debu
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\bin\Debug\net8.0-windows\FilmRecommendForm.Data.pdb
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\bin\Debug\net8.0-windows\FilmRecommendForm.Entities.pdb
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.csproj.AssemblyReference.cache
-C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.Form1.resources
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.csproj.GenerateResource.cache
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.AssemblyInfoInputs.cache
