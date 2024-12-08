@@ -43,12 +43,12 @@ namespace FilmRecommendForm.App
                         m.Director,
                         m.LeadingActor,
                         m.ReleaseYear
-                        
+
 
                     })
                     .ToList();
 
-                
+
                 dgvMovies.DataSource = movies; // DataGridView'e bağla
 
                 // MovieID ve Rating kolonlarını gizle
@@ -65,7 +65,7 @@ namespace FilmRecommendForm.App
 
                 dgvMovies.BorderStyle = BorderStyle.None;
                 dgvMovies.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-                
+
 
 
 
@@ -219,9 +219,16 @@ namespace FilmRecommendForm.App
                 int selectedMovieId = (int)dgvMovies.SelectedRows[0].Cells["MovieID"].Value;
 
                 // MovieDetailsForm'u aç ve ID'yi gönder
-                MovieDetailsFormcs detailsForm = new MovieDetailsFormcs (selectedMovieId);
+                MovieDetailsFormcs detailsForm = new MovieDetailsFormcs(selectedMovieId);
                 detailsForm.ShowDialog();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SelectionForm categoryForm = new SelectionForm();
+            categoryForm.Show();
+            this.Close();
         }
     }
 }

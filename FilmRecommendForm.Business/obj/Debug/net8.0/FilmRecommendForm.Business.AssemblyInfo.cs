@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FilmRecommendForm.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0bf31d263ba27f4c2f4caf82bf3e7040e2106825")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9fbd7c518f925a8123900a6fdc471e93e89eb66")]
 [assembly: System.Reflection.AssemblyProductAttribute("FilmRecommendForm.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FilmRecommendForm.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -34,6 +34,7 @@
             btnSendMail = new Button();
             txtEmail = new TextBox();
             panel1 = new Panel();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvMovies).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -51,9 +52,9 @@
             // 
             // btnShowGraph
             // 
-            btnShowGraph.Location = new Point(48, 49);
+            btnShowGraph.Location = new Point(50, 36);
             btnShowGraph.Name = "btnShowGraph";
-            btnShowGraph.Size = new Size(122, 63);
+            btnShowGraph.Size = new Size(130, 63);
             btnShowGraph.TabIndex = 2;
             btnShowGraph.Text = "Grafik";
             btnShowGraph.UseVisualStyleBackColor = true;
@@ -61,9 +62,9 @@
             // 
             // btnExportPdf
             // 
-            btnExportPdf.Location = new Point(358, 49);
+            btnExportPdf.Location = new Point(237, 36);
             btnExportPdf.Name = "btnExportPdf";
-            btnExportPdf.Size = new Size(133, 63);
+            btnExportPdf.Size = new Size(130, 63);
             btnExportPdf.TabIndex = 3;
             btnExportPdf.Text = "PDF";
             btnExportPdf.UseVisualStyleBackColor = true;
@@ -71,9 +72,9 @@
             // 
             // btnSendMail
             // 
-            btnSendMail.Location = new Point(631, 49);
+            btnSendMail.Location = new Point(428, 36);
             btnSendMail.Name = "btnSendMail";
-            btnSendMail.Size = new Size(122, 63);
+            btnSendMail.Size = new Size(130, 63);
             btnSendMail.TabIndex = 4;
             btnSendMail.Text = "Mail";
             btnSendMail.UseVisualStyleBackColor = true;
@@ -81,31 +82,44 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(628, 16);
+            txtEmail.Location = new Point(428, 3);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(125, 27);
+            txtEmail.Size = new Size(130, 27);
             txtEmail.TabIndex = 5;
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(btnShowGraph);
-            panel1.Controls.Add(txtEmail);
-            panel1.Controls.Add(btnExportPdf);
             panel1.Controls.Add(btnSendMail);
-            panel1.Location = new Point(1, 326);
+            panel1.Controls.Add(btnExportPdf);
+            panel1.Controls.Add(txtEmail);
+            panel1.Location = new Point(0, 429);
             panel1.Name = "panel1";
-            panel1.Size = new Size(799, 125);
+            panel1.Size = new Size(783, 125);
             panel1.TabIndex = 6;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(606, 36);
+            button1.Name = "button1";
+            button1.Size = new Size(130, 63);
+            button1.TabIndex = 7;
+            button1.Text = "Geri Dön";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // MovieListForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(782, 553);
             Controls.Add(panel1);
             Controls.Add(dgvMovies);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MovieListForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MovieListForm";
             Load += MovieListForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMovies).EndInit();
@@ -122,5 +136,6 @@
         private Button btnSendMail;
         private TextBox txtEmail;
         private Panel panel1;
+        private Button button1;
     }
 }

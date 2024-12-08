@@ -1,4 +1,5 @@
-﻿using FilmRecommend.Data;
+﻿using FilmRecommend.Business;
+using FilmRecommend.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static FilmRecommend.Business.DataOperations;
 
 namespace FilmRecommendForm.App
 {
@@ -25,6 +27,21 @@ namespace FilmRecommendForm.App
         {
             using (var context = new FilmMoodDBContext())
             {
+                var movie = context.Movies.FirstOrDefault(m => m.MovieID == _selectedMovieId);
+
+                if (movie != null)
+                {
+
+                    pictureBox1.ImageLocation = movie.PosterURL; // Posteri göster
+                }
+                else
+                {
+                    MessageBox.Show("Film bulunamadı.");
+                }
+            }
+
+            using (var context = new FilmMoodDBContext())
+            {
                 var movie = context.Movies.Include(m => m.SubCategory.Category)
                                           .FirstOrDefault(m => m.MovieID == _selectedMovieId);
 
@@ -37,6 +54,11 @@ namespace FilmRecommendForm.App
                     txtRating.Text = movie.Rating.ToString();
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

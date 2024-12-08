@@ -47,46 +47,49 @@
             // cmbMainCategory
             // 
             cmbMainCategory.FormattingEnabled = true;
-            cmbMainCategory.Location = new Point(151, 166);
+            cmbMainCategory.Location = new Point(89, 167);
             cmbMainCategory.Name = "cmbMainCategory";
-            cmbMainCategory.Size = new Size(151, 28);
+            cmbMainCategory.Size = new Size(178, 28);
             cmbMainCategory.TabIndex = 0;
             cmbMainCategory.SelectedIndexChanged += cmbMainCategory_SelectedIndexChanged;
             // 
             // cmbSubCategory
             // 
             cmbSubCategory.FormattingEnabled = true;
-            cmbSubCategory.Location = new Point(513, 166);
+            cmbSubCategory.Location = new Point(515, 167);
             cmbSubCategory.Name = "cmbSubCategory";
-            cmbSubCategory.Size = new Size(151, 28);
+            cmbSubCategory.Size = new Size(179, 28);
             cmbSubCategory.TabIndex = 1;
             cmbSubCategory.SelectedIndexChanged += cmbSubCategory_SelectedIndexChanged;
             // 
             // btnListMovies
             // 
-            btnListMovies.Location = new Point(350, 147);
+            btnListMovies.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            btnListMovies.Location = new Point(337, 151);
             btnListMovies.Name = "btnListMovies";
-            btnListMovies.Size = new Size(94, 29);
+            btnListMovies.Size = new Size(118, 55);
             btnListMovies.TabIndex = 2;
-            btnListMovies.Text = "button1";
+            btnListMovies.Text = "Listele";
             btnListMovies.UseVisualStyleBackColor = true;
             btnListMovies.Click += btnListMovies_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(187, 133);
+            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(145, 141);
             label1.Name = "label1";
-            label1.Size = new Size(66, 20);
+            label1.Size = new Size(74, 23);
             label1.TabIndex = 3;
             label1.Text = "Kategori";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(539, 133);
+            label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            label2.Location = new Point(556, 141);
             label2.Name = "label2";
-            label2.Size = new Size(87, 20);
+            label2.Size = new Size(99, 23);
             label2.TabIndex = 4;
             label2.Text = "Alt kategori";
             // 
@@ -105,7 +108,7 @@
             // 
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label4.ForeColor = Color.FromArgb(0, 0, 64);
-            label4.Location = new Point(20, 47);
+            label4.Location = new Point(14, 55);
             label4.Name = "label4";
             label4.Size = new Size(762, 72);
             label4.TabIndex = 6;
@@ -124,9 +127,9 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(151, 200);
+            pictureBox1.Location = new Point(0, 318);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(151, 75);
+            pictureBox1.Size = new Size(782, 206);
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
             // 
@@ -134,9 +137,9 @@
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 424);
+            statusStrip1.Location = new Point(0, 527);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 26);
+            statusStrip1.Size = new Size(782, 26);
             statusStrip1.TabIndex = 9;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -151,7 +154,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(782, 553);
             Controls.Add(statusStrip1);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
@@ -160,7 +163,9 @@
             Controls.Add(btnListMovies);
             Controls.Add(cmbSubCategory);
             Controls.Add(cmbMainCategory);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "SelectionForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SelectionForm";
             Load += SelectionForm_Load;
             panel1.ResumeLayout(false);

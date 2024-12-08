@@ -2,6 +2,7 @@
 {
     using FilmRecommend.Data;
     using FilmRecommend.Entities;
+    using Newtonsoft.Json;
     using System.Xml;
 
     public class DataOperations
@@ -2585,6 +2586,49 @@
 
 
         }
+
+        public void UpdatePosterURLs()
+        {
+            using (var context = new FilmMoodDBContext())
+            {
+                // JSON dosyasını okuyun
+                var jsonFilePath = @"C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\movies.json";
+                var jsonData = File.ReadAllText(jsonFilePath);
+                //var moviePosters = JsonConvert.DeserializeObject<List<MoviePoster>>(jsonData);
+                List<Movie> moviesFromJson = JsonConvert.DeserializeObject<List<Movie>>(jsonData);
+
+                foreach (var movie in moviesFromJson)
+                {
+                    // Veritabanında var olan filmi kontrol edin
+                    var existingMovie = context.Movies.FirstOrDefault(m => m.MovieID == movie.MovieID);
+
+                    if (existingMovie == null)
+                    {
+                        // Eğer kayıt yoksa yeni bir kayıt ekleyin
+                        context.Movies.Add(movie);
+                    }
+                    else
+                    {
+                        // Eğer kayıt varsa PosterURL'yi güncelleyin
+                        existingMovie.PosterURL = movie.PosterURL ?? existingMovie.PosterURL;
+                    }
+                }
+
+                // Değişiklikleri kaydedin
+                context.SaveChanges();
+            }
+        }
+
+        // JSON'u deserialize etmek için bir model
+        public class MoviePoster
+        {
+            public int MovieID { get; set; }
+            public string? PosterURLs { get; set; }
+        }
+
+
+
+
 
 
 

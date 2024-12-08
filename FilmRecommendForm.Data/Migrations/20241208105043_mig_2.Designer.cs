@@ -3,6 +3,7 @@ using EntityFrameworkCore.Jet.Metadata;
 using FilmRecommend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmRecommendForm.Data.Migrations
 {
     [DbContext(typeof(FilmMoodDBContext))]
-    partial class FilmMoodDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241208105043_mig_2")]
+    partial class mig_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

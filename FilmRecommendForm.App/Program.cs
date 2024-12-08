@@ -1,5 +1,6 @@
 using FilmRecommend.Business;
 using FilmRecommend.Data;
+using System.Net.Http.Json;
 
 namespace FilmRecommendForm.App
 {
@@ -19,7 +20,11 @@ namespace FilmRecommendForm.App
             //DataOperations dataOperations = new DataOperations();
             //dataOperations.AddMoviesToDatabase();
 
+            DataOperations dataOperations = new DataOperations();
+            dataOperations.UpdatePosterURLs();
             
+
+
 
 
 
