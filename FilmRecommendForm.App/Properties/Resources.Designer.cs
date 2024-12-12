@@ -59,5 +59,96 @@ namespace FilmRecommendForm.App.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4432b9bcacc2ed45b9bef8d8475a6030 {
+            get {
+                object obj = ResourceManager.GetObject("4432b9bcacc2ed45b9bef8d8475a6030", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dd839f14917d9b7ee2e24eb2660a2848 {
+            get {
+                object obj = ResourceManager.GetObject("dd839f14917d9b7ee2e24eb2660a2848", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dd839f14917d9b7ee2e24eb2660a28481 {
+            get {
+                object obj = ResourceManager.GetObject("dd839f14917d9b7ee2e24eb2660a28481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delije_002 {
+            get {
+                object obj = ResourceManager.GetObject("delije-002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DLjOIGlWkAAiNSh {
+            get {
+                object obj = ResourceManager.GetObject("DLjOIGlWkAAiNSh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FJKdOJtX0AUkiHM {
+            get {
+                object obj = ResourceManager.GetObject("FJKdOJtX0AUkiHM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FJKdOoJWUAI3Rzl {
+            get {
+                object obj = ResourceManager.GetObject("FJKdOoJWUAI3Rzl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FKwMoa_WYBE9Sx7 {
+            get {
+                object obj = ResourceManager.GetObject("FKwMoa_WYBE9Sx7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap resized_7d81c_a15a1e46mttb_den_tepki_ceken_suleyman_cakir_paylasimiyla_ilgili_aciklama_yapti {
+            get {
+                object obj = ResourceManager.GetObject("resized_7d81c-a15a1e46mttb_den_tepki_ceken_suleyman_cakir_paylasimiyla_ilgili_aci" +
+                        "klama_yapti", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

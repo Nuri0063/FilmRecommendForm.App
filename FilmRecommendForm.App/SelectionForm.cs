@@ -5,28 +5,59 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FilmRecommendForm.App
 {
+
     public partial class SelectionForm : Form
     {
-        public SelectionForm()
+        private string _userName;
+        private bool _isAdmin;
+        public SelectionForm(string userName, bool isAdmin)
         {
             InitializeComponent();
+            _userName = userName;
+            _isAdmin = isAdmin;
+
+            lblUserName.Text = $"Hoşgeldiniz, {_userName}";
+
         }
 
         private void SelectionForm_Load(object sender, EventArgs e)
         {
-            using (var context = new FilmMoodDBContext())
+
+
+            try
             {
-                // Üst kategori ComboBox'ına verileri ekle
-                cmbMainCategory.DataSource = context.MovieCategories.ToList();
-                cmbMainCategory.DisplayMember = "CategoryName";
-                cmbMainCategory.ValueMember = "MovieCategoryID";
+                using (var context = new FilmMoodDBContext())
+                {
+                    var categories = context.MovieCategories.ToList();
+
+                    if (categories != null && categories.Any())
+                    {
+                        cmbMainCategory.DataSource = categories;
+                        cmbMainCategory.DisplayMember = "CategoryName";
+                        cmbMainCategory.ValueMember = "MovieCategoryID";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Veritabanında kategori bulunamadı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show($"Veritabanı bağlantısı sırasında bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -51,7 +82,7 @@ namespace FilmRecommendForm.App
                 int selectedMainCategoryId = (int)cmbMainCategory.SelectedValue;
                 int selectedSubCategoryId = (int)cmbSubCategory.SelectedValue;
 
-                var movieListForm = new MovieListForm(selectedMainCategoryId, selectedSubCategoryId);
+                var movieListForm = new MovieListForm(selectedMainCategoryId, selectedSubCategoryId, _userName, _isAdmin);
                 movieListForm.Show();
                 this.Hide();
             }
@@ -64,6 +95,11 @@ namespace FilmRecommendForm.App
         private void cmbSubCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = $"Seçilen Kategori: {cmbMainCategory.Text}, Alt Kategori: {cmbSubCategory.Text}";
+        }
+
+        private void SelectionForm_Paint(object sender, PaintEventArgs e)
+        {
+           
         }
     }
 }

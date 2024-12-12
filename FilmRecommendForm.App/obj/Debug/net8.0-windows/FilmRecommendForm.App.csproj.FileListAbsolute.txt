@@ -174,3 +174,5 @@ C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debu
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.SelectionForm.resources
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.MovieDetailsFormcs.resources
 C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\bin\Debug\net8.0-windows\movies.json
+C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.AddMovieForm.resources
+C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\obj\Debug\net8.0-windows\FilmRecommendForm.App.EditMovieForm.resources

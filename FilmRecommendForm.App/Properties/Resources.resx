@@ -117,4 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="FJKdOJtX0AUkiHM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FJKdOJtX0AUkiHM.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="4432b9bcacc2ed45b9bef8d8475a6030" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4432b9bcacc2ed45b9bef8d8475a6030.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dd839f14917d9b7ee2e24eb2660a2848" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dd839f14917d9b7ee2e24eb2660a2848.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delije-002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delije-002.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FJKdOoJWUAI3Rzl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FJKdOoJWUAI3Rzl.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dd839f14917d9b7ee2e24eb2660a28481" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dd839f14917d9b7ee2e24eb2660a28481.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DLjOIGlWkAAiNSh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DLjOIGlWkAAiNSh.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FKwMoa_WYBE9Sx7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FKwMoa_WYBE9Sx7.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="resized_7d81c-a15a1e46mttb_den_tepki_ceken_suleyman_cakir_paylasimiyla_ilgili_aciklama_yapti" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\resized_7d81c-a15a1e46mttb_den_tepki_ceken_suleyman_cakir_paylasimiyla_ilgili_aciklama_yapti.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

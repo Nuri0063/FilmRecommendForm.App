@@ -34,20 +34,27 @@
             btnSendMail = new Button();
             txtEmail = new TextBox();
             panel1 = new Panel();
+            btnDeleteMovie = new Button();
+            btnEditMovie = new Button();
+            btnAddMovie = new Button();
             button1 = new Button();
+            lblUserName = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvMovies).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // dgvMovies
             // 
-            dgvMovies.BackgroundColor = Color.Navy;
+            dgvMovies.BackgroundColor = SystemColors.Control;
             dgvMovies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMovies.Location = new Point(0, -4);
+            dgvMovies.Location = new Point(0, 41);
             dgvMovies.Name = "dgvMovies";
             dgvMovies.RowHeadersWidth = 51;
-            dgvMovies.Size = new Size(800, 152);
+            dgvMovies.Size = new Size(783, 152);
             dgvMovies.TabIndex = 0;
+            dgvMovies.CellContentClick += dgvMovies_CellContentClick;
+            dgvMovies.SelectionChanged += dgvMovies_SelectionChanged;
             dgvMovies.MouseDoubleClick += dgvMovies_MouseDoubleClick;
             // 
             // btnShowGraph
@@ -90,42 +97,95 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnDeleteMovie);
+            panel1.Controls.Add(btnEditMovie);
+            panel1.Controls.Add(btnAddMovie);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(btnShowGraph);
             panel1.Controls.Add(btnSendMail);
             panel1.Controls.Add(btnExportPdf);
             panel1.Controls.Add(txtEmail);
-            panel1.Location = new Point(0, 429);
+            panel1.Location = new Point(0, 317);
             panel1.Name = "panel1";
-            panel1.Size = new Size(783, 125);
+            panel1.Size = new Size(783, 237);
             panel1.TabIndex = 6;
+            // 
+            // btnDeleteMovie
+            // 
+            btnDeleteMovie.Location = new Point(536, 135);
+            btnDeleteMovie.Name = "btnDeleteMovie";
+            btnDeleteMovie.Size = new Size(130, 70);
+            btnDeleteMovie.TabIndex = 10;
+            btnDeleteMovie.Text = "Sil";
+            btnDeleteMovie.UseVisualStyleBackColor = true;
+            btnDeleteMovie.Click += btnDeleteMovie_Click;
+            // 
+            // btnEditMovie
+            // 
+            btnEditMovie.Location = new Point(335, 135);
+            btnEditMovie.Name = "btnEditMovie";
+            btnEditMovie.Size = new Size(130, 70);
+            btnEditMovie.TabIndex = 9;
+            btnEditMovie.Text = "Güncelle";
+            btnEditMovie.UseVisualStyleBackColor = true;
+            btnEditMovie.Click += btnEditMovie_Click;
+            // 
+            // btnAddMovie
+            // 
+            btnAddMovie.Location = new Point(135, 135);
+            btnAddMovie.Name = "btnAddMovie";
+            btnAddMovie.Size = new Size(130, 70);
+            btnAddMovie.TabIndex = 8;
+            btnAddMovie.Text = "Ekle";
+            btnAddMovie.UseVisualStyleBackColor = true;
+            btnAddMovie.Click += btnAddMovie_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(606, 36);
+            button1.Location = new Point(616, 29);
             button1.Name = "button1";
-            button1.Size = new Size(130, 63);
+            button1.Size = new Size(130, 70);
             button1.TabIndex = 7;
             button1.Text = "Geri Dön";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // lblUserName
+            // 
+            lblUserName.AutoSize = true;
+            lblUserName.Location = new Point(646, 9);
+            lblUserName.Name = "lblUserName";
+            lblUserName.Size = new Size(0, 20);
+            lblUserName.TabIndex = 7;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(606, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 20);
+            label1.TabIndex = 8;
+            label1.Text = "label1";
             // 
             // MovieListForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(782, 553);
+            Controls.Add(label1);
+            Controls.Add(lblUserName);
             Controls.Add(panel1);
             Controls.Add(dgvMovies);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MovieListForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MovieListForm";
+            Text = "Film Listeleme";
             Load += MovieListForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMovies).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -137,5 +197,10 @@
         private TextBox txtEmail;
         private Panel panel1;
         private Button button1;
+        private Button btnDeleteMovie;
+        private Button btnEditMovie;
+        private Button btnAddMovie;
+        private Label lblUserName;
+        private Label label1;
     }
 }

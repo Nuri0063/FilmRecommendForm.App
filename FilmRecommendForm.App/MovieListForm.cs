@@ -20,12 +20,32 @@ namespace FilmRecommendForm.App
 {
     public partial class MovieListForm : Form
     {
-        public MovieListForm(int selectedMainCategoryId, int selectedSubCategoryId)
+        private int selectedMovieId;
+          private int _MainCategoryId;
+        private int _SubCategoryId;
+
+        private string _username;
+        private bool _isAdmin;
+        public MovieListForm(int selectedMainCategoryId, int selectedSubCategoryId, string username, bool isAdmin)
         {
             InitializeComponent();
             LoadMovies(selectedMainCategoryId, selectedSubCategoryId);
+            _username = username;
+            _isAdmin = isAdmin;
+
+            _MainCategoryId = selectedMainCategoryId;
+            _SubCategoryId = selectedSubCategoryId;
+
+        label1.Text = $"Hoş Geldiniz, {_username}";
+
+            btnAddMovie.Visible = _isAdmin;
+            btnEditMovie.Visible = _isAdmin;
+            btnDeleteMovie.Visible = _isAdmin;
+
 
         }
+
+
 
         private void LoadMovies(int categoryId, int subCategoryId)
         {
@@ -76,7 +96,7 @@ namespace FilmRecommendForm.App
 
         private void MovieListForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnShowGraph_Click(object sender, EventArgs e)
@@ -219,16 +239,82 @@ namespace FilmRecommendForm.App
                 int selectedMovieId = (int)dgvMovies.SelectedRows[0].Cells["MovieID"].Value;
 
                 // MovieDetailsForm'u aç ve ID'yi gönder
-                MovieDetailsFormcs detailsForm = new MovieDetailsFormcs(selectedMovieId);
+                MovieDetailsFormcs detailsForm = new MovieDetailsFormcs(selectedMovieId,_username);
                 detailsForm.ShowDialog();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SelectionForm categoryForm = new SelectionForm();
+            SelectionForm categoryForm = new SelectionForm(_username,_isAdmin);
             categoryForm.Show();
             this.Close();
+        }
+
+
+
+
+
+
+        private void dgvMovies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvMovies_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvMovies.SelectedRows.Count > 0)
+            {
+                selectedMovieId = (int)dgvMovies.SelectedRows[0].Cells["MovieID"].Value;
+            }
+        }
+
+        private void btnAddMovie_Click(object sender, EventArgs e)
+        {
+            AddMovieForm addMovieForm = new AddMovieForm(_MainCategoryId,_SubCategoryId);
+            addMovieForm.ShowDialog();
+            LoadMovies(_MainCategoryId, _SubCategoryId); // Yeni filmleri yükle
+        }
+
+        private void btnEditMovie_Click(object sender, EventArgs e)
+        {
+            if (selectedMovieId != 0)
+            {
+                EditMovieForm editMovieForm = new EditMovieForm(selectedMovieId);
+                editMovieForm.ShowDialog();
+                LoadMovies(_MainCategoryId, _SubCategoryId);
+            }
+            else
+            {
+                MessageBox.Show("Lütfen düzenlenecek bir film seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnDeleteMovie_Click(object sender, EventArgs e)
+        {
+            using (FilmMoodDBContext context = new FilmMoodDBContext())
+            {
+                if (selectedMovieId != 0)
+                {
+                    DialogResult result = MessageBox.Show("Bu filmi silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        // Film silme işlemi
+                        var movie = context.Movies.Find(selectedMovieId);
+                        if (movie != null)
+                        {
+                            context.Movies.Remove(movie);
+                            context.SaveChanges();
+                            MessageBox.Show("Film başarıyla silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadMovies(_MainCategoryId, _SubCategoryId);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen silinecek bir film seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

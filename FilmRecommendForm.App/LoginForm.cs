@@ -12,6 +12,7 @@ namespace FilmRecommendForm.App
 {
     public partial class LoginForm : Form
     {
+
         public LoginForm()
         {
             InitializeComponent();
@@ -19,16 +20,32 @@ namespace FilmRecommendForm.App
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "admin" && txtPassword.Text == "1234")
+
+
+            string username = txtUsername.Text.Trim();
+
+            if (string.IsNullOrEmpty(username))
             {
-                var categoryForm =new SelectionForm();
-                categoryForm.Show();
-                this.Hide();
+                MessageBox.Show("Lütfen bir kullanıcı adı giriniz.");
+                return;
             }
-            else
-            {
-                MessageBox.Show("Geçersiz kullanıcı adı veya şifre!");
-            }
+
+            // Admin kontrolü
+            bool isAdmin = username.Equals("admin", StringComparison.OrdinalIgnoreCase);
+
+            // Kullanıcı adını bir property olarak saklayalım
+            SelectionForm selectionForm = new SelectionForm(username, isAdmin);
+            selectionForm.Show();
+            this.Hide();
+
+
+        }
+
+
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

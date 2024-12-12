@@ -16,11 +16,15 @@ namespace FilmRecommendForm.App
 {
     public partial class MovieDetailsFormcs : Form
     {
+        private string _userName;
         private int _selectedMovieId;
-        public MovieDetailsFormcs(int selectedMovieId)
+        public MovieDetailsFormcs(int selectedMovieId,string username)
         {
             InitializeComponent();
             _selectedMovieId = selectedMovieId;
+            _userName = username;
+
+            label6.Text = $"Hoş Geldiniz, {_userName}";
         }
 
         private void MovieDetailsFormcs_Load(object sender, EventArgs e)

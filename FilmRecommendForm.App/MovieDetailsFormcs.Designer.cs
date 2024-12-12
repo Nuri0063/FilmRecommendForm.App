@@ -40,6 +40,7 @@
             label5 = new Label();
             pictureBox1 = new PictureBox();
             button1 = new Button();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -152,11 +153,21 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(585, 9);
+            label6.Name = "label6";
+            label6.Size = new Size(50, 20);
+            label6.TabIndex = 12;
+            label6.Text = "label6";
+            // 
             // MovieDetailsFormcs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(782, 553);
+            Controls.Add(label6);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             Controls.Add(label5);
@@ -172,7 +183,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MovieDetailsFormcs";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MovieDetailsFormcs";
+            Text = "Filmin Detayları";
             Load += MovieDetailsFormcs_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -193,5 +204,6 @@
         private Label label5;
         private PictureBox pictureBox1;
         private Button button1;
+        private Label label6;
     }
 }
