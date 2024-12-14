@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static FilmRecommend.Data.FilmMoodDBContext;
 
 namespace FilmRecommendForm.App
 {
@@ -49,11 +50,10 @@ namespace FilmRecommendForm.App
 
         private void LoadMovies(int categoryId, int subCategoryId)
         {
-            using (var context = new FilmMoodDBContext())
-            {
-                // Filmleri getir ve listele
+            var context = Program.DbContext;
+            // Filmleri getir ve listele
 
-                var movies = context.Movies
+            var movies = context.Movies
                     .Where(m => m.SubCategory.MovieCategoryID == categoryId && m.MovieSubCategoryID == subCategoryId)
                     .Select(m => new
                     {
@@ -91,7 +91,7 @@ namespace FilmRecommendForm.App
 
 
 
-            }
+            
         }
 
         private void MovieListForm_Load(object sender, EventArgs e)
@@ -292,9 +292,8 @@ namespace FilmRecommendForm.App
 
         private void btnDeleteMovie_Click(object sender, EventArgs e)
         {
-            using (FilmMoodDBContext context = new FilmMoodDBContext())
-            {
-                if (selectedMovieId != 0)
+            var context = Program.DbContext;
+            if (selectedMovieId != 0)
                 {
                     DialogResult result = MessageBox.Show("Bu filmi silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
@@ -314,7 +313,7 @@ namespace FilmRecommendForm.App
                 {
                     MessageBox.Show("Lütfen silinecek bir film seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
+            
         }
     }
 }

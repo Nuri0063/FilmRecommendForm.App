@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static FilmRecommend.Data.FilmMoodDBContext;
 
 namespace FilmRecommendForm.App
 {
@@ -25,20 +26,18 @@ namespace FilmRecommendForm.App
 
         private void AddMovieForm_Load(object sender, EventArgs e)
         {
-            using (var context = new FilmMoodDBContext())
-            {
-                var subCategory = context.MovieSubCategories
+            var context = Program.DbContext;
+            var subCategory = context.MovieSubCategories
                                          .FirstOrDefault(sc => sc.MovieSubCategoryID == _subCategoryId);
 
                 
-            }
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var context = new FilmMoodDBContext())
-            {
-                var newMovie = new Movie
+            var context = Program.DbContext;
+            var newMovie = new Movie
                 {
                     MovieName = txtMovieName.Text,
                     LeadingActor = txtLeadingActor.Text,
@@ -54,7 +53,7 @@ namespace FilmRecommendForm.App
 
                 MessageBox.Show("Film başarıyla eklendi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-            }
+            
         }
     }
 }

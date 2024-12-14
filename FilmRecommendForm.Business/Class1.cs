@@ -3,13 +3,18 @@
     using FilmRecommend.Data;
     using FilmRecommend.Entities;
     using Newtonsoft.Json;
-    using System.Xml;
 
+    using System.Xml;
+    using static FilmRecommend.Data.FilmMoodDBContext;
+    
+    
     public class DataOperations
     {
-        FilmMoodDBContext context = new FilmMoodDBContext();
+        
+       
 
         // Filmleri ekleyen metot
+        /*
         public void AddMoviesToDatabase()
         {
 
@@ -2567,32 +2572,36 @@
             };
 
 
+        
+            //context.MovieCategories.Add(movieCategoryAksiyon); // Film kategorisini ekle
+            //context.MovieCategories.Add(movieCategoryBelgesel);
+            //context.MovieCategories.Add(movieCategoryBilimkurgu);
+            //context.MovieCategories.Add(movieCategoryDram);
+            //context.MovieCategories.Add(movieCategoryGerilim);
+            //context.MovieCategories.Add(movieCategoryKomedi);
+            //context.MovieCategories.Add(movieCategoryKorku);
+            //context.MovieCategories.Add(movieCategoryFantastik);
+            //context.MovieCategories.Add(movieCategoryPolitik);
+            //context.MovieCategories.Add(movieCategoryRomantik);
+            //context.MovieCategories.Add(movieCategoryMacera);
+            //context.MovieCategories.Add(movieCategorySavaş);
+            //context.MovieCategories.Add(movieCategorySpor);
+            //context.MovieCategories.Add(movieCategorySuç);
+            //context.SaveChanges(); // Değişiklikleri kaydet
 
-            context.MovieCategories.Add(movieCategoryAksiyon); // Film kategorisini ekle
-            context.MovieCategories.Add(movieCategoryBelgesel);
-            context.MovieCategories.Add(movieCategoryBilimkurgu);
-            context.MovieCategories.Add(movieCategoryDram);
-            context.MovieCategories.Add(movieCategoryGerilim);
-            context.MovieCategories.Add(movieCategoryKomedi);
-            context.MovieCategories.Add(movieCategoryKorku);
-            context.MovieCategories.Add(movieCategoryFantastik);
-            context.MovieCategories.Add(movieCategoryPolitik);
-            context.MovieCategories.Add(movieCategoryRomantik);
-            context.MovieCategories.Add(movieCategoryMacera);
-            context.MovieCategories.Add(movieCategorySavaş);
-            context.MovieCategories.Add(movieCategorySpor);
-            context.MovieCategories.Add(movieCategorySuç);
-            context.SaveChanges(); // Değişiklikleri kaydet
-
-
+        
         }
 
+*/
+
+//poster url ekleme
+/*
         public void UpdatePosterURLs()
         {
-            using (var context = new FilmMoodDBContext())
-            {
-                // JSON dosyasını okuyun
-                var jsonFilePath = @"C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\movies.json";
+            
+            var context = Program.DbContext;
+            // JSON dosyasını okuyun
+            var jsonFilePath = @"C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\movies.json";
                 var jsonData = File.ReadAllText(jsonFilePath);
                 //var moviePosters = JsonConvert.DeserializeObject<List<MoviePoster>>(jsonData);
                 List<Movie> moviesFromJson = JsonConvert.DeserializeObject<List<Movie>>(jsonData);
@@ -2616,7 +2625,7 @@
 
                 // Değişiklikleri kaydedin
                 context.SaveChanges();
-            }
+            
         }
 
         // JSON'u deserialize etmek için bir model
@@ -2626,7 +2635,7 @@
             public string? PosterURLs { get; set; }
         }
 
-
+        */
 
 
 

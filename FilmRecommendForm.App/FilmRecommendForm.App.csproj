@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>C:\Users\nurii\source\repos\FilmRecommendForm.App\FilmRecommendForm.App\Debug</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

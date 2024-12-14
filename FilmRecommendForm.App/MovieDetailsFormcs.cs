@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static FilmRecommend.Business.DataOperations;
+using static FilmRecommend.Data.FilmMoodDBContext;
 
 namespace FilmRecommendForm.App
 {
@@ -29,9 +30,8 @@ namespace FilmRecommendForm.App
 
         private void MovieDetailsFormcs_Load(object sender, EventArgs e)
         {
-            using (var context = new FilmMoodDBContext())
-            {
-                var movie = context.Movies.FirstOrDefault(m => m.MovieID == _selectedMovieId);
+            var context = Program.DbContext;
+            var movie = context.Movies.FirstOrDefault(m => m.MovieID == _selectedMovieId);
 
                 if (movie != null)
                 {
@@ -42,22 +42,21 @@ namespace FilmRecommendForm.App
                 {
                     MessageBox.Show("Film bulunamadı.");
                 }
-            }
+            
 
-            using (var context = new FilmMoodDBContext())
-            {
-                var movie = context.Movies.Include(m => m.SubCategory.Category)
+            
+                var movie1 = context.Movies.Include(m => m.SubCategory.Category)
                                           .FirstOrDefault(m => m.MovieID == _selectedMovieId);
 
-                if (movie != null)
+                if (movie1 != null)
                 {
-                    txtMovieName.Text = movie.MovieName;
-                    txtDirector.Text = movie.Director;
-                    txtLeadingActor.Text = movie.LeadingActor;
-                    txtReleaseYear.Text = movie.ReleaseYear.ToString();
-                    txtRating.Text = movie.Rating.ToString();
+                    txtMovieName.Text = movie1.MovieName;
+                    txtDirector.Text = movie1.Director;
+                    txtLeadingActor.Text = movie1.LeadingActor;
+                    txtReleaseYear.Text = movie1.ReleaseYear.ToString();
+                    txtRating.Text = movie1.Rating.ToString();
                 }
-            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

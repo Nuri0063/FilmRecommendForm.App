@@ -1,15 +1,19 @@
 ﻿using FilmRecommend.Data;
 using FilmRecommend.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static FilmRecommend.Data.FilmMoodDBContext;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FilmRecommendForm.App
@@ -33,46 +37,41 @@ namespace FilmRecommendForm.App
         {
 
 
-            try
-            {
-                using (var context = new FilmMoodDBContext())
-                {
-                    var categories = context.MovieCategories.ToList();
 
-                    if (categories != null && categories.Any())
-                    {
-                        cmbMainCategory.DataSource = categories;
-                        cmbMainCategory.DisplayMember = "CategoryName";
-                        cmbMainCategory.ValueMember = "MovieCategoryID";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Veritabanında kategori bulunamadı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-            }
-            catch (InvalidOperationException ex)
+            var context = Program.DbContext;
+
+
+            var categories = context.MovieCategories.AsNoTracking().ToList();
+
+
+            if (categories != null && categories.Any())
             {
-                MessageBox.Show($"Veritabanı bağlantısı sırasında bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbMainCategory.DataSource = categories;
+                cmbMainCategory.DisplayMember = "CategoryName";
+                cmbMainCategory.ValueMember = "MovieCategoryID";
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veritabanında kategori bulunamadı.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
+
         }
 
         private void cmbMainCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             var selectedItem = cmbMainCategory.SelectedItem as MovieCategory;
             int selectedCategoryId = selectedItem.MovieCategoryID;
-            using (var context = new FilmMoodDBContext())
-            {
-                cmbSubCategory.DataSource = context.MovieSubCategories
+
+            var context = Program.DbContext;
+            cmbSubCategory.DataSource = context.MovieSubCategories
                     .Where(sc => sc.MovieCategoryID == selectedCategoryId)
                     .ToList();
-                cmbSubCategory.DisplayMember = "SubCategoryName";
-                cmbSubCategory.ValueMember = "MovieSubCategoryID";
-            }
+            cmbSubCategory.DisplayMember = "SubCategoryName";
+            cmbSubCategory.ValueMember = "MovieSubCategoryID";
+
         }
 
         private void btnListMovies_Click(object sender, EventArgs e)
@@ -99,7 +98,9 @@ namespace FilmRecommendForm.App
 
         private void SelectionForm_Paint(object sender, PaintEventArgs e)
         {
-           
+
         }
+
+        
     }
 }

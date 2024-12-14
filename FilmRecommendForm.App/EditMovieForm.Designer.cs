@@ -46,46 +46,46 @@
             // 
             // txtLeadingActor
             // 
-            txtLeadingActor.Location = new Point(396, 82);
+            txtLeadingActor.Location = new Point(396, 69);
             txtLeadingActor.Name = "txtLeadingActor";
             txtLeadingActor.Size = new Size(125, 27);
             txtLeadingActor.TabIndex = 1;
             // 
             // txtReleaseYear
             // 
-            txtReleaseYear.Location = new Point(396, 152);
+            txtReleaseYear.Location = new Point(396, 117);
             txtReleaseYear.Name = "txtReleaseYear";
             txtReleaseYear.Size = new Size(125, 27);
             txtReleaseYear.TabIndex = 2;
             // 
             // txtDirector
             // 
-            txtDirector.Location = new Point(396, 222);
+            txtDirector.Location = new Point(396, 172);
             txtDirector.Name = "txtDirector";
             txtDirector.Size = new Size(125, 27);
             txtDirector.TabIndex = 3;
             // 
             // txtRating
             // 
-            txtRating.Location = new Point(396, 291);
+            txtRating.Location = new Point(396, 219);
             txtRating.Name = "txtRating";
             txtRating.Size = new Size(125, 27);
             txtRating.TabIndex = 4;
             // 
             // txtPosterURL
             // 
-            txtPosterURL.Location = new Point(396, 363);
+            txtPosterURL.Location = new Point(396, 262);
             txtPosterURL.Name = "txtPosterURL";
             txtPosterURL.Size = new Size(125, 27);
             txtPosterURL.TabIndex = 5;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(238, 243);
+            btnSave.Location = new Point(396, 319);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(94, 29);
+            btnSave.Size = new Size(125, 29);
             btnSave.TabIndex = 6;
-            btnSave.Text = "button1";
+            btnSave.Text = "Güncelle";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 

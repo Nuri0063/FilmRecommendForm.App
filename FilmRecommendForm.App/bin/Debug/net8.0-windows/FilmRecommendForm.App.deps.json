@@ -1583,6 +1583,7 @@
       "FilmRecommendForm.Data/1.0.0": {
         "dependencies": {
           "EntityFrameworkCore.Jet": "8.0.0",
+          "EntityFrameworkCore.Jet.Data": "8.0.0",
           "FilmRecommendForm.Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10",
           "PDFsharp": "6.1.1",

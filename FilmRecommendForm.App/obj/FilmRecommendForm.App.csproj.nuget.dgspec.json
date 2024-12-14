@@ -256,6 +256,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "EntityFrameworkCore.Jet.Data": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -266,13 +270,29 @@
               "target": "Package",
               "version": "[8.0.10, )"
             },
+            "Microsoft.Win32.Registry": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "PdfSharp": {
               "target": "Package",
               "version": "[6.1.1, )"
             },
+            "System.Collections": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Data.Common": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
             "System.Data.OleDb": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "System.Linq": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             },
             "itext7": {
               "target": "Package",

@@ -46,12 +46,12 @@
             // 
             // dgvMovies
             // 
-            dgvMovies.BackgroundColor = SystemColors.Control;
+            dgvMovies.BackgroundColor = Color.Tan;
             dgvMovies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMovies.Location = new Point(0, 41);
             dgvMovies.Name = "dgvMovies";
             dgvMovies.RowHeadersWidth = 51;
-            dgvMovies.Size = new Size(783, 152);
+            dgvMovies.Size = new Size(783, 147);
             dgvMovies.TabIndex = 0;
             dgvMovies.CellContentClick += dgvMovies_CellContentClick;
             dgvMovies.SelectionChanged += dgvMovies_SelectionChanged;
@@ -96,7 +96,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.White;
+            panel1.BackColor = Color.Tan;
             panel1.Controls.Add(btnDeleteMovie);
             panel1.Controls.Add(btnEditMovie);
             panel1.Controls.Add(btnAddMovie);
@@ -171,6 +171,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.BlanchedAlmond;
             ClientSize = new Size(782, 553);
             Controls.Add(label1);
             Controls.Add(lblUserName);

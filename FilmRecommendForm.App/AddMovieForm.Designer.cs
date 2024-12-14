@@ -39,11 +39,11 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(437, 361);
+            btnSave.Location = new Point(375, 309);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(94, 29);
+            btnSave.Size = new Size(125, 29);
             btnSave.TabIndex = 1;
-            btnSave.Text = "button1";
+            btnSave.Text = "Ekle";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 

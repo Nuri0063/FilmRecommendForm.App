@@ -41,18 +41,16 @@
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             pictureBox1 = new PictureBox();
             pictureBox5 = new PictureBox();
-            groupBox1 = new GroupBox();
             panel1.SuspendLayout();
             statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // cmbMainCategory
             // 
             cmbMainCategory.FormattingEnabled = true;
-            cmbMainCategory.Location = new Point(27, 75);
+            cmbMainCategory.Location = new Point(200, 163);
             cmbMainCategory.Name = "cmbMainCategory";
             cmbMainCategory.Size = new Size(178, 28);
             cmbMainCategory.TabIndex = 0;
@@ -61,7 +59,7 @@
             // cmbSubCategory
             // 
             cmbSubCategory.FormattingEnabled = true;
-            cmbSubCategory.Location = new Point(239, 75);
+            cmbSubCategory.Location = new Point(412, 163);
             cmbSubCategory.Name = "cmbSubCategory";
             cmbSubCategory.Size = new Size(179, 28);
             cmbSubCategory.TabIndex = 1;
@@ -70,7 +68,7 @@
             // btnListMovies
             // 
             btnListMovies.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnListMovies.Location = new Point(152, 131);
+            btnListMovies.Location = new Point(325, 219);
             btnListMovies.Name = "btnListMovies";
             btnListMovies.Size = new Size(118, 55);
             btnListMovies.TabIndex = 2;
@@ -82,7 +80,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(66, 49);
+            label1.Location = new Point(239, 137);
             label1.Name = "label1";
             label1.Size = new Size(74, 23);
             label1.TabIndex = 3;
@@ -92,7 +90,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label2.Location = new Point(273, 49);
+            label2.Location = new Point(446, 137);
             label2.Name = "label2";
             label2.Size = new Size(99, 23);
             label2.TabIndex = 4;
@@ -101,19 +99,19 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.ForeColor = Color.Navy;
-            label3.Location = new Point(220, 6);
+            label3.Font = new Font("Stencil", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.MidnightBlue;
+            label3.Location = new Point(183, 6);
             label3.Name = "label3";
-            label3.Size = new Size(335, 41);
+            label3.Size = new Size(408, 35);
             label3.TabIndex = 5;
             label3.Text = "Kategori Seçimi Ekranı";
             // 
             // label4
             // 
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label4.Font = new Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, 162);
             label4.ForeColor = Color.FromArgb(0, 0, 64);
-            label4.Location = new Point(3, 47);
+            label4.Location = new Point(14, 47);
             label4.Name = "label4";
             label4.Size = new Size(762, 60);
             label4.TabIndex = 6;
@@ -121,20 +119,20 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Teal;
+            panel1.BackColor = Color.Tan;
             panel1.Controls.Add(lblUserName);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label4);
             panel1.ForeColor = Color.White;
-            panel1.Location = new Point(6, 3);
+            panel1.Location = new Point(0, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(793, 113);
+            panel1.Size = new Size(782, 113);
             panel1.TabIndex = 7;
             // 
             // lblUserName
             // 
             lblUserName.AutoSize = true;
-            lblUserName.Location = new Point(610, 6);
+            lblUserName.Location = new Point(637, 6);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(39, 20);
             lblUserName.TabIndex = 10;
@@ -158,48 +156,45 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.DarkGray;
+            pictureBox1.BackgroundImage = Properties.Resources.DLjOIGlWkAAiNSh;
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox1.Cursor = Cursors.IBeam;
             pictureBox1.Image = Properties.Resources.DLjOIGlWkAAiNSh;
-            pictureBox1.Location = new Point(20, 321);
+            pictureBox1.Location = new Point(425, 306);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(317, 203);
+            pictureBox1.Size = new Size(326, 203);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
             // pictureBox5
             // 
+            pictureBox5.BorderStyle = BorderStyle.Fixed3D;
             pictureBox5.Image = Properties.Resources.resized_7d81c_a15a1e46mttb_den_tepki_ceken_suleyman_cakir_paylasimiyla_ilgili_aciklama_yapti;
-            pictureBox5.Location = new Point(447, 321);
+            pictureBox5.Location = new Point(38, 306);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(306, 203);
             pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox5.TabIndex = 14;
             pictureBox5.TabStop = false;
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(btnListMovies);
-            groupBox1.Controls.Add(cmbMainCategory);
-            groupBox1.Controls.Add(cmbSubCategory);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(183, 122);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(434, 193);
-            groupBox1.TabIndex = 15;
-            groupBox1.TabStop = false;
-            // 
             // SelectionForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
+            BackColor = Color.BlanchedAlmond;
             ClientSize = new Size(782, 553);
-            Controls.Add(groupBox1);
+            Controls.Add(btnListMovies);
+            Controls.Add(cmbMainCategory);
             Controls.Add(pictureBox5);
+            Controls.Add(cmbSubCategory);
+            Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Controls.Add(label2);
             Controls.Add(statusStrip1);
             Controls.Add(panel1);
+            Cursor = Cursors.AppStarting;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "SelectionForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -212,8 +207,6 @@
             statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -232,7 +225,6 @@
         private ToolStripStatusLabel toolStripStatusLabel1;
         private Label lblUserName;
         private PictureBox pictureBox1;
-        private GroupBox groupBox1;
         private PictureBox pictureBox5;
     }
 }

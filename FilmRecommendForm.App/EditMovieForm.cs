@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static FilmRecommend.Data.FilmMoodDBContext;
 
 namespace FilmRecommendForm.App
 {
@@ -23,9 +24,8 @@ namespace FilmRecommendForm.App
 
         private void EditMovieForm_Load(object sender, EventArgs e)
         {
-            using (var context = new FilmMoodDBContext())
-            {
-                var movie = context.Movies.FirstOrDefault(m => m.MovieID == _movieId);
+            var context = Program.DbContext;
+            var movie = context.Movies.FirstOrDefault(m => m.MovieID == _movieId);
 
                 if (movie != null)
                 {
@@ -45,14 +45,13 @@ namespace FilmRecommendForm.App
                     MessageBox.Show("Film bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
-            }
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (var context = new FilmMoodDBContext())
-            {
-                var movie = context.Movies.FirstOrDefault(m => m.MovieID == _movieId);
+            var context = Program.DbContext;
+            var movie = context.Movies.FirstOrDefault(m => m.MovieID == _movieId);
 
                 if (movie != null)
                 {
@@ -72,7 +71,7 @@ namespace FilmRecommendForm.App
                 {
                     MessageBox.Show("Film bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+            
         }
     }
 }

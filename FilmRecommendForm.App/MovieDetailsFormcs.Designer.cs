@@ -38,9 +38,9 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            pictureBox1 = new PictureBox();
             button1 = new Button();
             label6 = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -134,15 +134,6 @@
             label5.TabIndex = 9;
             label5.Text = "Puan";
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(65, 26);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(270, 336);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
-            // 
             // button1
             // 
             button1.Location = new Point(541, 324);
@@ -162,14 +153,24 @@
             label6.TabIndex = 12;
             label6.Text = "label6";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(67, 32);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(270, 336);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // MovieDetailsFormcs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.BlanchedAlmond;
             ClientSize = new Size(782, 553);
+            Controls.Add(pictureBox1);
             Controls.Add(label6);
             Controls.Add(button1);
-            Controls.Add(pictureBox1);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -202,8 +203,8 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private PictureBox pictureBox1;
         private Button button1;
         private Label label6;
+        private PictureBox pictureBox1;
     }
 }

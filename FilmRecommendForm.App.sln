@@ -14,11 +14,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AEB88019-9DD4-495A-90C7-194E31BC8625}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		..\..\..\OneDrive\Belgeler\Database1.accdb = ..\..\..\OneDrive\Belgeler\Database1.accdb
 	EndProjectSection
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FilmRecommend", "FilmRecommend\FilmRecommend.vdproj", "{A7D31691-4B0B-4C4E-9AF0-F87E047112FB}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FilmRecommend2", "FilmRecommend2\FilmRecommend2.vdproj", "{ECA4EBF9-32D1-4328-B6C8-B5372D6D1FA4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FilmRecommend2", "FilmRecommend2\FilmRecommend2.vdproj", "{897F39A8-BD84-48E7-93DD-027C5D467851}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "deneme1", "deneme1\deneme1.vdproj", "{E8E15A2D-7711-4A78-A107-2398883B5ADA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,10 +43,10 @@ Global
 		{9FAD8396-E169-488D-9AE3-D0F9562B8F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FAD8396-E169-488D-9AE3-D0F9562B8F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FAD8396-E169-488D-9AE3-D0F9562B8F48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7D31691-4B0B-4C4E-9AF0-F87E047112FB}.Debug|Any CPU.ActiveCfg = Debug
-		{A7D31691-4B0B-4C4E-9AF0-F87E047112FB}.Release|Any CPU.ActiveCfg = Release
-		{897F39A8-BD84-48E7-93DD-027C5D467851}.Debug|Any CPU.ActiveCfg = Debug
-		{897F39A8-BD84-48E7-93DD-027C5D467851}.Release|Any CPU.ActiveCfg = Release
+		{ECA4EBF9-32D1-4328-B6C8-B5372D6D1FA4}.Debug|Any CPU.ActiveCfg = Debug
+		{ECA4EBF9-32D1-4328-B6C8-B5372D6D1FA4}.Release|Any CPU.ActiveCfg = Release
+		{E8E15A2D-7711-4A78-A107-2398883B5ADA}.Debug|Any CPU.ActiveCfg = Debug
+		{E8E15A2D-7711-4A78-A107-2398883B5ADA}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

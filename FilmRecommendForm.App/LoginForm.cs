@@ -36,6 +36,7 @@ namespace FilmRecommendForm.App
             // Kullanıcı adını bir property olarak saklayalım
             SelectionForm selectionForm = new SelectionForm(username, isAdmin);
             selectionForm.Show();
+
             this.Hide();
 
 
